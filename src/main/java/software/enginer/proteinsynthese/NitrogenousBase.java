@@ -1,5 +1,8 @@
 package software.enginer.proteinsynthese;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -30,6 +33,7 @@ public enum NitrogenousBase {
           return abbreviationMap.get(c);
      }
 
+     @JsonValue
      public char getAbbreviation() {
           return abbreviation;
      }

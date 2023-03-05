@@ -1,5 +1,7 @@
 package software.enginer.proteinsynthese;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -56,9 +58,13 @@ public class Strand {
      public String toString() {
           return "Strand {" +
                   "sugar=" + sugar +
-                  ", bases=" + bases.toString().replaceAll(", ","-") +
+                  ", bases=" + formattedBases() +
                   ", direction=" + direction +
                   '}';
+     }
+     @JsonGetter(value = "bases")
+     public String formattedBases(){
+          return bases.toString().replaceAll(", ","-");
      }
 
      public SugarType getSugar() {
